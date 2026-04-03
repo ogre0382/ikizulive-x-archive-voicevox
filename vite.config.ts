@@ -8,11 +8,17 @@ const manifest = defineManifest({
   name: 'VOICEVOX ポスト読み上げ',
   version: '1.0.0',
   permissions: ['storage'],
+  // 1. スクリプトを動かす対象サイト
   content_scripts: [
     {
       matches: ['https://gsm-app.com/*'],
       js: ['src/content/index.tsx'], // エントリポイントを指定
     },
+  ],
+  // 2. 通信を許可する対象（API）
+  host_permissions: [
+    "https://api.tts.quest/*",
+    "https://audio2.tts.quest/*"
   ],
   options_page: 'options.html',
 })
