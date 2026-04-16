@@ -20,7 +20,7 @@ const manifest = defineManifest({
     "https://api.tts.quest/*",
     "https://audio2.tts.quest/*"
   ],
-  options_page: 'options.html',
+
 })
 
 export default defineConfig({
