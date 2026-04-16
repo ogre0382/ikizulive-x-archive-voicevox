@@ -18,7 +18,9 @@ const manifest = defineManifest({
   // 2. 通信を許可する対象（API）
   host_permissions: [
     "https://api.tts.quest/*",
-    "https://audio2.tts.quest/*"
+    "https://audio2.tts.quest/*",
+    "https://deprecatedapis.tts.quest/*",
+    "https://voicevox.su-shiki.com/*"
   ],
 
 })
