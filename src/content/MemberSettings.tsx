@@ -132,8 +132,10 @@ export const MemberSettings: React.FC<MemberSettingsProps> = ({ userId, onSettin
       marginLeft: '10px',
       fontSize: '10px',
       backgroundColor: '#f9f9f9',
-      maxWidth: '200px', // max-width で親レイアウト計算に影響しない
-      minWidth: '180px'  // 最小幅で UI つぶれを防ぐ
+      maxWidth: '200px',
+      minWidth: '180px',
+      flexShrink: 0,
+      flexGrow: 0
     }}>
 
       {/* 話者選択 */}

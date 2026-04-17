@@ -197,7 +197,14 @@ export const PostPlayerControls: React.FC<PostPlayerControlsProps> = ({ postId, 
   };
 
   return (
-    <div ref={controlsRef} style={{ display: 'flex', alignItems: 'center', gap: '5px', marginLeft: '10px', flexWrap: 'wrap' }}>
+    <div ref={controlsRef} style={{ 
+      display: 'inline-flex', 
+      alignItems: 'center', 
+      gap: '5px', 
+      flexWrap: 'wrap',
+      flexShrink: '0',
+      minWidth: 'fit-content'
+    }}>
       <button
         onClick={() => handlePlay()}
         style={{

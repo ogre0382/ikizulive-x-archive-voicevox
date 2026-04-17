@@ -65,6 +65,8 @@ const injectMemberSettingsUI = () => {
         const memberSettingsContainer = document.createElement('div');
         memberSettingsContainer.className = 'voicevox-member-settings-injected';
         memberSettingsContainer.setAttribute('data-user-id', userId);
+        memberSettingsContainer.style.flexShrink = '0';
+        memberSettingsContainer.style.flexGrow = '0';
         // memberLinkの横に挿入
         memberLink.parentNode?.insertBefore(memberSettingsContainer, memberLink.nextSibling);
 
@@ -91,6 +93,14 @@ const injectPostPlayerControlsUI = () => {
     const postArticleElement = headerElement.closest('article._article_i6t0e_1') as HTMLElement;
     if (!postArticleElement) return;
 
+    // ヘッダー要素のレイアウト設定を確保（親要素の flex-wrap を有効化）
+    if (headerElement instanceof HTMLElement) {
+      if (!headerElement.style.flexWrap) {
+        headerElement.style.flexWrap = 'wrap';
+        headerElement.style.alignItems = 'center';
+      }
+    }
+
     // すでにUIを注入済みならスキップ（チェック強化）
     if (headerElement.querySelector('.voicevox-player-controls-injected')) return;
 
@@ -113,6 +123,12 @@ const injectPostPlayerControlsUI = () => {
     controlsContainer.className = 'voicevox-player-controls-injected';
     controlsContainer.setAttribute('data-post-id', postId);
     controlsContainer.style.marginLeft = '10px';
+    controlsContainer.style.display = 'flex';
+    controlsContainer.style.alignItems = 'center';
+    controlsContainer.style.gap = '5px';
+    controlsContainer.style.flexWrap = 'wrap';
+    controlsContainer.style.flexShrink = '0';
+    controlsContainer.style.flexGrow = '0';
     headerElement.appendChild(controlsContainer);
 
     // <p class="_root_1xq52_1"> から直接 span 内のテキストを抽出
